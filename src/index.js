@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom'
+import React from 'react'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//importar componente
+
+import App, { App2 } from './App.jsx'
+
+//utilizar el componente
+
+// function formatName(user) {
+//     return user[0] + ' ' + user[1];
+//   }
+  
+//   const user = ["Ismael", "Collado"];
+  
+//   const element = (
+//     <h1>
+//       Hello, {formatName(user)}!  
+//     </h1>
+//   );
+
+
+
+
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));}
+
+setInterval(tick, 1000);
+
+
+// ReactDom.render( <App />, 
+//   document.getElementById("root"))
+
+// ReactDom.render( <App2 />,
+//   document.getElementById("hola"))
+
+
