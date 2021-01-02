@@ -1,34 +1,23 @@
 import React from 'react'
 import Result from './components/Result'
-import Button from './components/Button'
 import MathOperations from './components/MathOperations'
-
-
+import FuncOperations from './components/Functions'
 import './App.css'
+import Numbers from './components/Numbers'
 
 //generacion de la fuente del componente
 
 const App = () => {
-    
-    const clickHandlerFunction = (text) => {
-        console.log(text)
-    }
-
     return ( 
     <main className='react-calculator'>
-        <Result />
+        <Result  />
         <div className="grid"> 
             <div className="numbers">
-                <Button type="number" text={ "1" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "2" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "3" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "4" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "5" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "6" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "7" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "8" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "9" } clickHandler={ clickHandlerFunction } />
-                <Button type="number" text={ "0" } clickHandler={ clickHandlerFunction } />
+                <Numbers onClickNumber = {( number => 
+                    console.log(number)
+                )}
+                />
+
                 
             </div>
         
@@ -39,13 +28,16 @@ const App = () => {
                 onClickEqual = { (equal) => 
                     console.log("Equal: ", equal)
                 }
-
-            
             />
-            <div className="functions">
-                <button>clear</button>
-                <button>r</button>
-            </div>
+            
+            <FuncOperations
+                onClickClear = { (func) => 
+                    console.log("Funct: ", func)
+                }
+                onClickR = { (func) => 
+                    console.log("Funct: ", func)
+                } 
+            />
 
         </div>
     </main> )

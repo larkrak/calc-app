@@ -3,6 +3,19 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 
 
+/* Equivalentes
+
+const MathOperations = ( { onClickOperation, onClickEqual } ) => (
+    <section className="math-operations">
+        <Button type="oper" text="+" clickHandler={ onClickOperation } />
+        <Button type="oper" text="-" clickHandler={ onClickOperation } />
+        <Button type="oper" text="*" clickHandler={ onClickOperation } />
+        <Button type="oper" text="/" clickHandler={ onClickOperation } />
+        <Button type="oper" text="=" clickHandler={ onClickEqual } />
+    </section>
+    
+)*/
+
 const MathOperations = ( { onClickOperation, onClickEqual } ) => {
 
     return (
