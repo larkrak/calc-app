@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ type, text, clickHandler }) => (
-    <button className={ type } onClick={ () => clickHandler(text) }>
-        <span>{ text }</span>
-    </button>
-)
+const Button = ({ type, text, clickHandler }) => {
+    return (
+        <button className={ type } onClick={ () => clickHandler(text) }>
+            <span>{ text }</span>
+        </button>
+    )
+}
 
 // Equivalentes
 

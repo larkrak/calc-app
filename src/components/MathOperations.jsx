@@ -16,14 +16,30 @@ const MathOperations = ( { onClickOperation, onClickEqual } ) => (
     
 )*/
 
+const signos = ["+", "-", "*", "/"];
+
+const renderButtons = onClickOperation => {
+
+
+    const renderButton = signo => {
+
+        return (
+            <Button key={ signo }
+                    text = { signo }
+                    clickHandler = { onClickOperation }
+            />
+        )
+    }
+    return signos.map(renderButton)
+}
+
+
+
 const MathOperations = ( { onClickOperation, onClickEqual } ) => {
 
     return (
         <section className="math-operations">
-            <Button type="oper" text="+" clickHandler={ onClickOperation } />
-            <Button type="oper" text="-" clickHandler={ onClickOperation } />
-            <Button type="oper" text="*" clickHandler={ onClickOperation } />
-            <Button type="oper" text="/" clickHandler={ onClickOperation } />
+            { renderButtons(onClickOperation) }
             <Button type="oper" text="=" clickHandler={ onClickEqual } />
         </section>
     )

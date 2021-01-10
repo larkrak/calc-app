@@ -24,9 +24,7 @@ const App = () => {
             <div className="numbers">
                 <Numbers onClickNumber = { (number)  => {
                     console.log(number)
-
                     funcionModificaTexto(number)
-
                 }
             }
                 />
