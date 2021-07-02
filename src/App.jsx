@@ -1,5 +1,7 @@
+/* eslint no-eval: 0 */
 import React, { useState } from 'react'
 import Result from './components/Result'
+import words from 'lodash.words'
 import MathOperations from './components/MathOperations'
 import FuncOperations from './components/Functions'
 import './App.css'
@@ -9,22 +11,19 @@ import Numbers from './components/Numbers'
 
 const App = () => {
 
-    const arrayTextoFuncionModificaTexto = useState("")
+    const [stack, setStack] = useState("")
 
-    // 1er posicion: valor que inicialmente es el valor por defecto
-    const texto = arrayTextoFuncionModificaTexto[0]
+    const items = words(stack, /[^-^+^*^/]+/g)
 
-    // 2da posicion: funcion que me va a permitir modificar el valor por defecto
-    const funcionModificaTexto = arrayTextoFuncionModificaTexto[1]
+    const value = items.length >0 ? items[items.length - 1] : 0
 
     return ( 
     <main className='react-calculator'>
-        <Result value={ texto }  />
+        <Result value={ value }  />
         <div className="grid"> 
             <div className="numbers">
                 <Numbers onClickNumber = { (number)  => {
-                    console.log(number)
-                    funcionModificaTexto(number)
+                    setStack(`${stack}${number}`)
                 }
             }
                 />
@@ -32,19 +31,19 @@ const App = () => {
         
             <MathOperations 
                 onClickOperation = { (operation) =>
-                    console.log("Operation: ", operation)
+                    setStack(`${stack}${operation}`)
                 }
                 onClickEqual = { (equal) => 
-                    console.log("Equal: ", equal)
+                    setStack(eval(stack).toString())
                 }
             />
             
             <FuncOperations
                 onClickClear = { (func) => 
-                    console.log("Funct: ", func)
+                    setStack("")
                 }
                 onClickR = { (func) => 
-                    console.log("Funct: ", func)
+                    setStack(stack.length > 0 ? stack.substring(0, stack.length - 1) : '')
                 } 
             />
 

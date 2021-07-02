@@ -121,6 +121,7 @@ button:hover {
     background-color: #1B1D20;
     cursor: pointer;
     box-shadow: black 5px 5px;
+    
 }
 
 .grid button:hover {
